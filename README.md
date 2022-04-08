@@ -1,1 +1,1 @@
-# E2-Amelioration-IA
+# Epreuve 2 : Amélioration IA
