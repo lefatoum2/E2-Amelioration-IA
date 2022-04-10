@@ -24,7 +24,9 @@ Les matrices correspondant à chaque image sont ajoutées dans les listes X_app 
 ## Modélisation d'un classifieur
 Portant sur de la classification d’image, le modèle est un réseau de neurones convolutifs (Convolutional Neural Networks CNN). Ces CNN s’inspirent du cortex visuel des animaux. L’ensemble des neurones les constituant permettent de traiter individuellement des portions d’informations contenues dans les images afin d’en ressortir une prédiction et en soit, une classification des images.
 
-[image]
+<p align="center">
+  <img src="Figures/Schema_1.png" />
+</p>
 
 Pour l'initialisation de ce modèle, les couches Conv2D sont utilisées sur les traitements d'objets bidimensionnels. Le nombre de filtres (ou canaux de convolution) d’entrée commence à 32 (et double à chaque couche intermédiaire), avec une définition de kernel de dimension (3,3) idéale pour des images ayant une taille moyenne de 150x150 pixels.
 
@@ -43,8 +45,13 @@ A la fin de l’entrainement, le modèle est enregistré lui aussi dans un fichi
 ## Evaluation du modèle CNN
 Les courbes d’apprentissage sur les métriques Accuracy (métrique d’exactitude) et Loss (par la fonction de perte) ont été affichées afin de vérifier l’évolution de l’entraînement du modèle. Un plateau est atteint à la fin de cette phase d’apprentissage. Grâce aux checkpoints, le modèle aux poids optimaux possède une Accuracy de 0.95 pour un Loss de 0.26 sur les données de validation.
 
-[image]
-[image]
+<p align="center">
+  <img src="Figures/accuracyr4.png" />
+  <img src="Figures/lossr4.png" />
+</p>
+<p align="center">
+  <img src="Figures/Résultats_1.png" />
+</p>
 
 Pour évaluer la répartition des images du set Valid classé par le modèle, une matrice de confusion a aussi été affichée. On rencontre des erreurs de classification sur la catégorie Semi. Le modèle prédit des images représentant des portes closes ou ouvertes alors qu’elles sont entre-ouvertes.
 
@@ -60,15 +67,21 @@ Deux fonctions sont créées :
 * Une fonction cache_video permet de garder la capture vidéo en cache et permettant l’incorporation simultanée des traitements générés par les modèles IA. Cette fonction est utilisée pour la vidéo et l’utilisation de la caméra.
 * Une fonction image_traitement traitant l’image d’entrée et en ressortant la même image avec les cadres de détection de porte et le label de classification (et probabilité).
 
-[image]
+<p align="center">
+  <img src="Figures/Presentation.png" />
+</p>
 
 Finalement, un menu permet de naviguer et utiliser les différentes fonctionnalités. Pour les images, il y a la possibilité de les déposées directement sur l’interface. Pour l’utilisation de la caméra et vidéo, des boutons permettent de démarrer ou stopper la lecture :
 
-[image]
+<p align="center">
+  <img src="Figures/Résultats_2.png" />
+</p>
 
 Les tests sur caméra et vidéo se sont bien déroulés. Les portes sont généralement bien détectées et classifiées.  Cependant,  des imprécisions ont été remarquées la détection en temps réel. Des fenêtres, vitres ou autres éléments de forme rectangulaires sont considérés comme des portes par le modèle de détection.
 
-[image]
+<p align="center">
+  <img src="Figures/Résultats_3.png" />
+</p>
 
 
 
