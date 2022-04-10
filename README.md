@@ -10,6 +10,8 @@ Le besoin de cette entreprise est une application Interface Python ou Page Web c
 * Etape 2 : Exécuter la localisation et encadre la porte. 
 * Etape 3 : Faire retourner le résultat et afficher sur la photo, ou la vidéo le résultat du modèle de classification.
 
+Le modèle de détection de porte a été réalisé en amont et utilise un algorithme YOLO. Ce système de reconnaissance d’objet en temps réel prédit les objets d'une image et les signale sous la forme de cadre (boxes). Les images représentant des portes ont été labélisées dans un premier temps avant d’entraîner le modèle de détection spécifique. YOLO à l’avantage inhérent d’effectuer rapidement ses prédictions en une seule itération, contrairement à d’autres modèles qui détectent les régions d’intérêt séparément de la reconnaissance d’objet.
+
 ## Preprocessing
 Afin de créer le modèle de classification des portes, un ensemble d’images est proposé dans le cadre de cette épreuve. Le Dataset contient des images en couleur de taille originale (dossier OriginalSize) ou rognée (dossier Cropped)  afin de prendre uniquement en compte la porte.
 
@@ -49,16 +51,17 @@ Les courbes d’apprentissage sur les métriques Accuracy (métrique d’exactit
   <img src="Figures/accuracyr4.png" />
   <img src="Figures/lossr4.png" />
 </p>
-<p align="center">
-  <img src="Figures/Résultats_2.png" />
-</p>
 
 Pour évaluer la répartition des images du set Valid classé par le modèle, une matrice de confusion a aussi été affichée. On rencontre des erreurs de classification sur la catégorie Semi. Le modèle prédit des images représentant des portes closes ou ouvertes alors qu’elles sont entre-ouvertes.
 
 Dans le cas de l’évaluation sur les images de Test (inutilisées durant l’apprentissage et la validation du modèle), il y a davantage d’erreur de prédiction et d’autant plus dans la catégorie Semi. Toutefois la majorité des images sont classées correctement dans leur catégorie respective.
 
+<p align="center">
+  <img src="Figures/Résultats_2.png" />
+</p>
+
 ## Test sur Application
-L'interface a été construit sous *Streamlit*
+L'interface a été construit sous *Streamlit*. Utilisant le langage Python, il a pour but de construire des interfaces convenables et facilement sans utiliser de langages Front-end spécifiques. Il a notamment été conçu pour présenter des projets de Machine Learning et de data-science.
 
 Cette application propose d’utiliser les IA modélisées en amont sur différents fichiers, que ce soit des images, des vidéos ou encore permettant la possibilité d’utiliser directement la webcam. Le programme a donc été développé de telle sorte qu’il puisse répondre aux attentes de l’entreprise.
 Les modèles de détection et de classification sont chargés, ainsi que les poids optimaux. Une liste contenant les labels des classes disposés dans le même ordre que lors de la création du classifier est aussi déclarée.
@@ -83,6 +86,15 @@ Les tests sur caméra et vidéo se sont bien déroulés. Les portes sont génér
   <img src="Figures/Résultats_3.png" />
 </p>
 
+## Conclusion
+Quelques réseaux CNN, dont l’architecture s’inspire d’autres modèles existant, ont été construits. Le modèle final a été évalué sur deux métriques et présentait de bons résultats, notamment sur les matrices de confusion. Cependant, les courbes d’apprentissage présentent une variabilité de progression conséquente.
 
+Lors de la phase de test sur l’interface graphique, construit sous Streamlit, la plupart des portes présentées dans les photos du set Test sont détectées par le modèle YOLO et correctement classées. Toutefois, sur la détection en temps réel, il existe quelques problèmes de détection et de classification. Le modèle de détection confond certains éléments et les considère comme des portes. Au niveau de la classification, le modèle prévu à cet effet présente quelques difficultés, majoritairement sur les portes entre-ouvertes.
+
+Durant la phase d’entraînement, certaines images mises à dispositions étaient similaires entre les sets Train, Valid et Test, biaisant les véritables performances du modèle CNN de classification. Bien que la data-augmentation ait pu sans doute réduire l’écart entre les performances théoriques et les tests en temps réel, celle-ci n’est pas encore suffisante pour obtenir un modèle robuste et généralisant la classification des porte.
+
+## Perspectives
+Par la suite, il serait intéressant d’évaluer le modèle de détection afin de fixer un seuil de probabilité optimal permettant de cibler uniquement les portes. Pour le modèle de classification, augmenter le nombre d’images et éviter de répartir les mêmes portes dans chaque set permettra d’avoir une vision des performances réelles du modèle en fonction de l’architecture adoptée. Plusieurs autres paramètres peuvent être aussi à modifier comme la taille des images d’entrée, l’utilisation d’un plus grand Kernel d’entrée, ajouter des Dropout pour éviter le sous/sur-ajustement, ajuster le batch size, learning rate…
+Aussi, il peut être envisageable d’appliquer le principe de transfert learning afin d’associer un modèle pré-entrainé potentiellement plus robuste.
 
 
