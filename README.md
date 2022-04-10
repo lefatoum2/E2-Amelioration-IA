@@ -50,7 +50,7 @@ Les courbes d’apprentissage sur les métriques Accuracy (métrique d’exactit
   <img src="Figures/lossr4.png" />
 </p>
 <p align="center">
-  <img src="Figures/Résultats_1.png" />
+  <img src="Figures/Résultats_2.png" />
 </p>
 
 Pour évaluer la répartition des images du set Valid classé par le modèle, une matrice de confusion a aussi été affichée. On rencontre des erreurs de classification sur la catégorie Semi. Le modèle prédit des images représentant des portes closes ou ouvertes alors qu’elles sont entre-ouvertes.
@@ -74,7 +74,7 @@ Deux fonctions sont créées :
 Finalement, un menu permet de naviguer et utiliser les différentes fonctionnalités. Pour les images, il y a la possibilité de les déposées directement sur l’interface. Pour l’utilisation de la caméra et vidéo, des boutons permettent de démarrer ou stopper la lecture :
 
 <p align="center">
-  <img src="Figures/Résultats_2.png" />
+  <img src="Figures/Résultats_1.png" />
 </p>
 
 Les tests sur caméra et vidéo se sont bien déroulés. Les portes sont généralement bien détectées et classifiées.  Cependant,  des imprécisions ont été remarquées la détection en temps réel. Des fenêtres, vitres ou autres éléments de forme rectangulaires sont considérés comme des portes par le modèle de détection.
