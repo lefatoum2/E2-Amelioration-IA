@@ -1,6 +1,6 @@
 # Epreuve 2 : Amélioration IA
 
-[https://aime-charpentier.ent27.fr/lectureFichiergw.do?ID_FICHIER=8613](https://aime-charpentier.ent27.fr/lectureFichiergw.do?ID_FICHIER=8613)
+![https://aime-charpentier.ent27.fr/lectureFichiergw.do?ID_FICHIER=8613](https://aime-charpentier.ent27.fr/lectureFichiergw.do?ID_FICHIER=8613)
 
 ## Contexte
 Cette épreuve s’intègre dans l’obtention du Titre Professionnel de Développeur en Intelligence Artificielle. Formant la deuxième partie pratique, le projet a pour but d’améliorer une IA et de créer une interface graphique. Le sujet propose de créer une IA capable de détecter des portes en reportant leur état d’ouverture (ouverte, entre-ouverte ou fermée). Cette étude peut se rapprocher des recherches récentes sur la détection d’obstacle par exemple et portant surtout sur la mise en place de systèmes intelligents mobiles. Ces robots sont représentés sous divers formes et ayant des tâches spécifiques comme les aspirateurs intelligents, des robots de livraison, des robots de sécurité, des systèmes d'aide-soignant, qui aident les personnes en difficulté dans leurs tâches quotidiennes (Zhihao He & Ming Zhu. 2017). Cette problématique peut aussi se rattacher aux mesures de sécurités et de surveillances des portes où plusieurs méthodes de détection et de différenciation des états d’ouverture sont appliquées (B.Quintana et al. 2018).
